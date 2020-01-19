@@ -1,0 +1,74 @@
+$black: #3C454E;
+$grey:#F5F7FA;
+$orange: #EDA422;
+$red:#FF6C6C;
+$green:#96D38C;
+$grey-mid:#7C7C7C;
+$grey-light:#DEDEDE;
+$grey-back:#F9F9F9;
+$border:#F3F3F3;
+$text-grey:#9D9D9D;
+/*grid dimensions*/
+$rowWidth:1920px!default ;
+$columnSpace:1.25rem;
+
+/**/
+
+$Montserratarm:'Montserratarm', Arial, Verdana;
+$baseFontSize : 14;
+
+@mixin font($sizeValue, $line, $color, $weight, $textTransform, $fontFamily) {
+
+    @if $textTransform != 0 and $weight != 0 and $color != 0 {
+        font: $weight ($sizeValue / 16) + rem/$line $fontFamily;
+        color: $color;
+        text-transform: $textTransform;
+    }
+    @else if $textTransform == 0 and $weight != 0 and $color == 0 {
+        font: $weight ($sizeValue / 16) + rem/$line $fontFamily;
+    }
+    @else if $textTransform != 0 and $weight == 0 and $color == 0 {
+        font: ($sizeValue / 16) + rem/$line $fontFamily;
+        text-transform: $textTransform;
+    }
+    @else if $textTransform == 0 and $weight == 0 and $color != 0 {
+        font: ($sizeValue / 16) + rem/$line $fontFamily;
+        color: $color;
+    }
+    @else if $textTransform != 0 and $weight != 0 and $color == 0 {
+        font: $weight ($sizeValue / 16) + rem/$line $fontFamily;
+        text-transform: $textTransform;
+    }
+    @else if $textTransform != 0 and $weight == 0 and $color != 0 {
+        font: ($sizeValue / 16) + rem/$line $fontFamily;
+        color: $color;
+        text-transform: $textTransform;
+    }
+    @else if $textTransform == 0 and $weight != 0 and $color != 0 {
+        font: $weight ($sizeValue / 16) + rem/$line $fontFamily;
+        color: $color;
+    }
+    @else {
+        font: ($sizeValue / 16) + rem/$line $fontFamily;  
+    }
+}
+
+
+  //Transition
+    @mixin transition($prop,$delay,$timing){
+        -webkit-transition: $prop $delay $timing;
+        -moz-transition: $prop $delay $timing;
+        transition: $prop $delay $timing;
+    }
+
+    //Transformations
+    @mixin transform($transforms) {
+        -moz-transform: $transforms;
+        -webkit-transform: $transforms;
+        transform: $transforms;
+    }
+    
+    // rotate
+    @mixin rotate ($deg) {
+        @include transform(rotate(#{$deg}deg));
+    }

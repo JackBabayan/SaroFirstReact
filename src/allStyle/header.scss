@@ -1,0 +1,92 @@
+@import "./fonts-scss.scss";
+
+header{
+    padding: 20px 30px;
+    .header-left{
+        width: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        .lodo-text{
+            padding:0px 30px ;
+            border-left: 2px solid $grey-light;
+            @include font(15, 1.7, $black, 600,0,$Montserratarm);  
+        }
+        .logoWrap{
+            padding:0 30px ;
+        }
+    }
+   
+}
+
+.header-right{
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+}
+
+.partner-block{
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding:25px 30px ;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    .partner-logo{
+       padding-right: 30px;
+        border-right: 2px solid $grey-light;
+    }
+}
+
+.partner-drop-wrapp{
+    margin:0 30px;
+    position: relative;
+    .partner-select-res{
+        cursor: pointer;
+        @include font(15, 1.7, $black, 600,0,$Montserratarm);  
+    }
+    .partner-drop-down{
+        position: absolute;
+        top: 0px;
+        left: 0;
+        min-width: 150px;
+        opacity: 0;
+        visibility: hidden;
+        @include transition(all,0.3s,ease);
+        background-color: white;
+        border-radius: 5px;
+        padding:10px 20px;
+        div{
+            margin: 10px 0;
+        }
+    }
+    &.active{
+        .partner-drop-down{
+            top: 35px;
+            opacity: 1;
+            visibility: visible;
+            box-shadow: 0px 4px 50px rgba(0,0,0,0.2);
+        }
+        &:after{
+            @include rotate(180);
+        }
+    }
+    &:after{
+        @include transition(all,0.2s,ease);
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -30px;
+        width: 12px;
+        height: 6px;
+        margin: auto;
+        background-image: url(../img/arrow.svg);
+        background-size: cover;
+    }
+}
